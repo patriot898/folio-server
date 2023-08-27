@@ -1,10 +1,11 @@
+import os
 import psycopg2
 from config import config
 
 
 def create_tables():
 	""" create tables in the PostgreSQL database"""
-	commands = ("../tables/users.sql")
+	files = [f"../src/tables/{file}" for file in os.listdir("../src/tables/")]
 	conn = None
 	try:
 		# read the connection parameters
@@ -13,8 +14,8 @@ def create_tables():
 		conn = psycopg2.connect(**params)
 		cur = conn.cursor()
 		# create table one by one
-		for command in commands:
-			cur.execute(open(command, "r").read())
+		for file in files:
+			cur.execute(open(file, "r").read())
 		# close communication with the PostgreSQL database server
 		cur.close()
 		# commit the changes
