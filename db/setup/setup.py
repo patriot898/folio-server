@@ -5,11 +5,13 @@ from config import config
 
 def create_tables():
 	""" create tables in the PostgreSQL database"""
-	files = [f"../src/tables/{file}" for file in os.listdir("../src/tables/")]
+	db_dir = f"{os.getcwd()}/db"
+	table_dir = f"{db_dir}/src/tables"
+	files = [f"{table_dir}/{file}" for file in os.listdir(table_dir)]
 	conn = None
 	try:
 		# read the connection parameters
-		params = config()
+		params = config(f"{db_dir}/setup/database.ini")
 		# connect to the PostgreSQL server
 		conn = psycopg2.connect(**params)
 		cur = conn.cursor()
