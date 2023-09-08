@@ -14,3 +14,13 @@ uvicorn application.src.main:app --host 0.0.0.0 --port 80
 ```
 pytest
 ```
+
+### Adding Tables or Procedures to Database
+Create the necessary SQL files in its corresponding directory
+Run the following from the top level directory:
+
+```
+python db/setup.py
+```
+
+This will iterate through both the tables and procedures directories and execute the SQL files contained within them.

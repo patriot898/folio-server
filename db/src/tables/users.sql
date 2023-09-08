@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS users (
-   user_id serial PRIMARY KEY,
-   username VARCHAR(50) UNIQUE NOT NULL,
-   password VARCHAR(30) NOT NULL
+CREATE TABLE IF NOT EXISTS Users (
+   UserID serial PRIMARY KEY,
+   Username VARCHAR(50) UNIQUE NOT NULL,
+   Password VARCHAR(30) NOT NULL
 );

@@ -3,11 +3,16 @@ import psycopg2
 from config import config
 
 
-def create_tables():
+db_dir = f"{os.getcwd()}/db"
+directories = {
+	'tables': f"{db_dir}/src/tables",
+	'procs': f"{db_dir}/src/procs"
+}
+
+def deploy_directory(directory: str):
 	""" create tables in the PostgreSQL database"""
-	db_dir = f"{os.getcwd()}/db"
-	table_dir = f"{db_dir}/src/tables"
-	files = [f"{table_dir}/{file}" for file in os.listdir(table_dir)]
+	target_directory = directories[directory]
+	files = [f"{target_directory}/{file}" for file in os.listdir(target_directory)]
 	conn = None
 	try:
 		# read the connection parameters
@@ -30,4 +35,5 @@ def create_tables():
 
 
 if __name__ == '__main__':
-	create_tables()
+	deploy_directory('tables')
+	deploy_directory('procs')
