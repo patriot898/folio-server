@@ -16,7 +16,7 @@ def deploy_directory(directory: str):
 	conn = None
 	try:
 		# read the connection parameters
-		params = config(f"{db_dir}/setup/database.ini")
+		params = config(f"{db_dir}/database.ini")
 		# connect to the PostgreSQL server
 		conn = psycopg2.connect(**params)
 		cur = conn.cursor()
