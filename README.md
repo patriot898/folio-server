@@ -20,7 +20,7 @@ Create the necessary SQL files in its corresponding directory
 Run the following from the top level directory:
 
 ```
-python db/setup.py
+python application/src/dal/setup.py
 ```
 
 This will iterate through both the tables and procedures directories and execute the SQL files contained within them.

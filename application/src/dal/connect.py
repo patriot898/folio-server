@@ -1,7 +1,6 @@
 import os
 import psycopg2
 from config import config
-import proc_calls
 
 db_dir = f"{os.getcwd()}/db"
 
