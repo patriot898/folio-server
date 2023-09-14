@@ -4,7 +4,6 @@ from config import config
 
 db_dir = f"{os.getcwd()}/db"
 
-
 class DBConnector:
   def __init__(self):
     pass

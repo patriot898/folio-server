@@ -1,3 +1,4 @@
 db/database.ini
 __pycache__
 .pytest_cache
+manual_connect.py
