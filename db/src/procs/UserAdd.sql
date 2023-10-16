@@ -1,20 +1,23 @@
-CREATE OR REPLACE PROCEDURE UserAdd
+CREATE OR REPLACE FUNCTION UserAdd
   (
-  username VARCHAR(50),
-  password VARCHAR(30)
+  pUsername VARCHAR(50),
+  pPassword VARCHAR(30),
+  OUT pUserID int
   )
 LANGUAGE plpgsql
+-- 2 dollar signs indicate the beginning of a SQL string
 AS $$
- BEGIN
-  INSERT INTO Users
+  BEGIN
+    INSERT INTO Users
+      (
+        Username,
+        Password
+      )
+    VALUES
     (
-      Username,
-      Password
+      pUsername,
+      pPassword
     )
-  VALUES
-  (
-    username,
-    password
-  );
+  RETURNING UserID INTO pUserID;
 
 END $$;

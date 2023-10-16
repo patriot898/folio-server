@@ -1,2 +1,8 @@
-def user_add(cursor, username: str, password: str):
-  cursor.execute("CALL useradd(%s, %s);", (username, password))
+def user_add(connector, username: str, password: str):
+  row = connector.connectAndCall(f"SELECT useradd('{username}', '{password}');")
+  print(row)
+
+
+def user_get(connector, username: str):
+  row = connector.connectAndCall(f"SELECT userget('{username}');")
+  print(row)
