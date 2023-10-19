@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from config import config
+from .config import config
 
 db_dir = f"{os.getcwd()}/db"
 directories = {
