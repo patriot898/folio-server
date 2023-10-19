@@ -3,6 +3,6 @@ def user_add(connector, username: str, password: str):
   print(row)
 
 
-def user_get(connector, username: str):
-  row = connector.connectAndCall(f"SELECT userget('{username}');")
-  print(row)
+def user_get(connector, username: str, password: str):
+  row = connector.connectAndCall(f"SELECT userget('{username}', '{password}');")
+  print(row[0])
